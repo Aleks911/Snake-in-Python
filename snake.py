@@ -77,8 +77,19 @@ snake = Snake()
 foodSpawer = FoodSpawer()
 
 def gameOver():
-    pygame.quit()
-    sys.exit()
+    screen = pygame.display.set_mode((500, 500))
+    pygame.font.init()
+
+    myfont = pygame.font.SysFont('Comic Sans MS', 20)
+
+    textsurface = myfont.render('Twój wynik: ' + str(score) + '  Aby zakończyć naciśnij ESC', False, (255, 255, 255))
+
+    screen.blit(textsurface, (50, 180))
+
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_ESCAPE:
+            pygame.quit()
+            sys.exit()
 
 
 
